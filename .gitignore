@@ -1,0 +1,3 @@
+*.iml
+/.idea/*
+/django_learning_env/*
