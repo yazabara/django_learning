@@ -1,3 +1,4 @@
 *.iml
+*.sqlite3
 /.idea/*
 /django_learning_env/*
