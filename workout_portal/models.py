@@ -19,7 +19,7 @@ class Exercise(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1000)
     # Foreign Key to Training table
-    training = models.ForeignKey(to=Training, null=True, blank=True, on_delete=models.CASCADE)
+    training = models.ForeignKey(to=Training, null=False, blank=False, on_delete=models.CASCADE)
 
 
 class WorkoutSet(models.Model):
@@ -31,4 +31,4 @@ class WorkoutSet(models.Model):
     duration = models.IntegerField()
     additional = models.CharField(max_length=1000)
     # Foreign Key to Exercise table
-    exercise = models.ForeignKey(to=Exercise, null=True, blank=True, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(to=Exercise, null=False, blank=False, on_delete=models.CASCADE)
