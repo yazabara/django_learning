@@ -26,7 +26,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'workout_portal.apps.WorkoutPortalConfig',
+    'workout_portal',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

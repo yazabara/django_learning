@@ -2,6 +2,13 @@ from workout_portal.models import Training
 
 
 class TrainingService(object):
+    # singleton instance
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = object.__new__(TrainingService)
+        return cls._instance
 
     @staticmethod
     def create_new(user_id, name, date):
