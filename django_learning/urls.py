@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from workout_portal.views import UserViewSet, GroupViewSet
+from workout_portal.views.group_view_set import GroupViewSet
+from workout_portal.views.training_view_set import TrainingViewSet
+from workout_portal.views.user_view_set import UserViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+router.register(r'trainings', TrainingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

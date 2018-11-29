@@ -1,9 +1,0 @@
-{% if last_trainings %}
-<ul>
-    {% for training in last_trainings %}
-    <li><a href="training/{{ training.id }}/">{{ training.name }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No trainings are available.</p>
-{% endif %}
