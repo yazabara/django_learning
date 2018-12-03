@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from serializers.group_serializer import GroupSerializer
-from service.group_service import group_service
+from workout_portal.serializers.group_serializer import GroupSerializer
+from workout_portal.service.group_service import group_service
 
 
 class GroupViewSet(viewsets.ModelViewSet):

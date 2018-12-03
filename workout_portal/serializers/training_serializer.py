@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
-from models import Training
+from workout_portal.models import Training
 
 
 class TrainingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Training
-
-    fields = ('name', 'date')
+        fields = ('name', 'date', 'user')
