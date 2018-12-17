@@ -1,4 +1,45 @@
 *.iml
 *.sqlite3
-/.idea/*
 /django_learning_env/*
+
+# compiled output
+/frontend/dist
+/frontend/tmp
+/frontend/out-tsc
+
+# dependencies
+/frontend/node_modules
+
+# profiling files
+/frontend/chrome-profiler-events.json
+/frontend/speed-measure-plugin.json
+
+# IDEs and editors
+/.idea/*
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/frontend/.sass-cache
+/frontend/connect.lock
+/frontend/coverage
+/frontend/libpeerconnection.log
+/frontendnpm-debug.log
+/frontendyarn-error.log
+/frontendtestem.log
+/frontend/typings
+
+# System Files
+.DS_Store
+Thumbs.db
