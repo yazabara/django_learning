@@ -23,4 +23,10 @@ To use specific configurations(profiles) need to add CLI param ``--settings=``
 
 ----
 
+# Frontend for developer
 
+1. install node, npm
+2. install angular cli - npm install @angular/cli
+3. switch directory to "frontend"
+4. launch "npm -i" command
+for run use ng serve command
