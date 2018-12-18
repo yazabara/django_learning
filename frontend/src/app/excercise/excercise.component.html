@@ -1,0 +1,8 @@
+<div>
+  <span>{{excercise.name}}</span>
+  <h5>{{excercise.description}}</h5>
+  <app-workout-set
+    *ngFor="let set of excercise.workoutSets"
+    [workoutSet]="set"
+  ></app-workout-set>
+</div>>

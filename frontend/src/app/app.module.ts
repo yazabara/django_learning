@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
+import { WorkoutSetComponent } from './workout-set/workout-set.component';
+import { ExcerciseComponent } from './excercise/excercise.component';
+import { TrainingComponent } from './training/training.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    BodyComponent
+    BodyComponent,
+    WorkoutSetComponent,
+    ExcerciseComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,
