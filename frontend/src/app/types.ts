@@ -7,7 +7,7 @@ export interface Training {
 export interface Exercise {
     name: string;
     description: string;
-    workout_sets: WorkoutSet[];
+    workoutSets: WorkoutSet[];
 }
 
 export interface WorkoutSet {
