@@ -1,3 +1,9 @@
-<p>
-  training works!
-</p>
+<div style="border-style: groove; border-width: 3px; border-color: black; margin: 3px; padding: 3px;">
+  <span>{{training.name}}</span>
+  <h5>{{training.date}}</h5>
+  <button (click)="onExpandClick()">{{training.isExpanded && "HIDE" || "EXPAND"}}</button>
+  {{isExpanded && <app-excercise
+    *ngFor="let excercise of training.exercises"
+    [excercise]="excercise"
+  ></app-excercise>}}
+</div>
