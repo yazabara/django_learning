@@ -3,33 +3,33 @@ import { Training, WorkoutSet, Exercise } from '../types';
 export class Service {
     public static getTrainings(): Promise<Training[]> {
         return new Promise<Training[]>(function(resolve, reject) {
-            resolve(this.trainings());
+            resolve(Service.trainings());
         });
     }
 
-    private trainings(): Training[]{
+    private static trainings(): Training[] {
         return Array.from(Array(10).keys()).map(element => {
             const name = `training ${element}`;
             return {
                 name,
                 date: new Date(),
-                exercises: this.excercises(name)
+                exercises: Service.excercises(name)
             } as Training;
         });
     }
 
-    private excercises(trainingName: string): Exercise[]{
+    private static excercises(trainingName: string): Exercise[] {
         return Array.from(Array(10).keys()).map(element => {
             const name = `excercise-${trainingName} ${element}`;
             return {
                 name,
                 description: `description ${element}`,
-                workout_sets: this.sets(name)
+                workoutSets: Service.sets(name)
             } as Exercise;
         });
     }
 
-    private sets(name: string): WorkoutSet[]{
+    private static sets(name: string): WorkoutSet[] {
         return Array.from(Array(20).keys()).map(element => {
             return {
                 weight: element,
