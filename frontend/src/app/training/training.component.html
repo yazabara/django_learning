@@ -1,9 +1,14 @@
 <div style="border-style: groove; border-width: 3px; border-color: black; margin: 3px; padding: 3px;">
   <span>{{training.name}}</span>
   <h5>{{training.date}}</h5>
-  <button (click)="onExpandClick()">{{training.isExpanded && "HIDE" || "EXPAND"}}</button>
-  {{isExpanded && <app-excercise
-    *ngFor="let excercise of training.exercises"
-    [excercise]="excercise"
-  ></app-excercise>}}
+  <button (click)="onExpandClick()" [ngSwitch]="training.isExpanded">
+      <span *ngSwitchCase="true">HIDE</span>
+      <span *ngSwitchCase="false">EXPAND</span>
+  </button>
+  <div *ngIf="training.isExpanded">
+    <app-excercise
+      *ngFor="let excercise of training.exercises"
+      [excercise]="excercise"
+    ></app-excercise>
+  </div>
 </div>

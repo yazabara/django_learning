@@ -8,7 +8,6 @@ import { Training } from '../types';
 })
 export class TrainingComponent implements OnInit {
   @Input() training: Training;
-  isExpanded: boolean;
 
   constructor() { }
 
@@ -17,7 +16,7 @@ export class TrainingComponent implements OnInit {
 
   onExpandClick(): void {
     console.log('onExpandClick');
-    this.isExpanded = !this.isExpanded;
+    this.training.isExpanded = !this.training.isExpanded;
   }
 
 }

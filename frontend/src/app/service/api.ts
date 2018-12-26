@@ -13,6 +13,7 @@ export class Service {
             return {
                 name,
                 date: new Date(),
+                isExpanded: false,
                 exercises: Service.excercises(name)
             } as Training;
         });

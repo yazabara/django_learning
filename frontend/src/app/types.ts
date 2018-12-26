@@ -1,6 +1,7 @@
 export interface Training {
     name: string;
     date: Date;
+    isExpanded: boolean;
     exercises: Exercise[];
 }
 
