@@ -17,6 +17,9 @@ Use standard django app commands to manage the application.
 
 ``python manage.py runserver 8080``: application runs server on 8080 port.
 
+To use localhost:8080/admin page superuser must to be created. 
+To create super user run next command ``python manage.py createsuperuser --username=joe --email=joe@example.com`` - where username - new login, after that you will be prompted create new password
+
 To use specific configurations(profiles) need to add CLI param ``--settings=``
  
 (For example for using postgres db: ``--settings=django_learning.settings.local_pg``)
