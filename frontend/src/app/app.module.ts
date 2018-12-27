@@ -9,6 +9,7 @@ import { BodyComponent } from './template/body/body.component';
 import { WorkoutSetComponent } from './pages/training/workout-set/workout-set.component';
 import { ExcerciseComponent } from './pages/training/excercise/excercise.component';
 import { TrainingComponent } from './pages/training/training.component';
+import { DateFormat } from './pipes/dateFormatter';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TrainingComponent } from './pages/training/training.component';
     BodyComponent,
     WorkoutSetComponent,
     ExcerciseComponent,
-    TrainingComponent
+    TrainingComponent,
+    DateFormat
   ],
   imports: [
     BrowserModule,
