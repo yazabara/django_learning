@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { BodyComponent } from './body/body.component';
-import { WorkoutSetComponent } from './workout-set/workout-set.component';
-import { ExcerciseComponent } from './excercise/excercise.component';
-import { TrainingComponent } from './training/training.component';
+import { HeaderComponent } from './template/header/header.component';
+import { FooterComponent } from './template/footer/footer.component';
+import { BodyComponent } from './template/body/body.component';
+import { WorkoutSetComponent } from './pages/training/workout-set/workout-set.component';
+import { ExcerciseComponent } from './pages/training/excercise/excercise.component';
+import { TrainingComponent } from './pages/training/training.component';
 
 @NgModule({
   declarations: [

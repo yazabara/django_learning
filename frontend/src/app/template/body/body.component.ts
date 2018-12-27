@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Training } from '../types';
-import { Service } from '../service/api';
+import { Training } from '../../types';
+import { Service } from '../../service/api';
 
 @Component({
   selector: 'app-body',
