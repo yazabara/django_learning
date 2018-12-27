@@ -1,6 +1,6 @@
 <div style="border-style: groove; border-width: 3px; border-color: black; margin: 3px; padding: 3px;">
   <span>{{training.name}}</span>
-  <h5>{{training.date}}</h5>
+  <h5>{{training.date | dateFormat:'MM.DD.YYYY HH:mm:ss'}}</h5>
   <button (click)="onExpandClick()" [ngSwitch]="training.isExpanded">
       <span *ngSwitchCase="true">HIDE</span>
       <span *ngSwitchCase="false">EXPAND</span>

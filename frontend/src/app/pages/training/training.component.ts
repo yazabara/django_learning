@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Training } from '../types';
+import { Training } from '../../types';
 
 @Component({
   selector: 'app-training',
