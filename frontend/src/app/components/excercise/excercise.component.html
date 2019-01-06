@@ -1,8 +1,8 @@
 <div style="border-style: groove; border-width: 2px; border-color: blue; margin: 2px; padding: 2px;">
   <span>{{excercise.name}}</span>
   <h5>{{excercise.description}}</h5>
-  <app-workout-set
+  <app-workout-set-preview
     *ngFor="let set of excercise.workoutSets"
     [workoutSet]="set"
-  ></app-workout-set>
+  ></app-workout-set-preview>
 </div>
