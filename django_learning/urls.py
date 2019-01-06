@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 from workout_portal.views.group_view_set import GroupViewSet
 from workout_portal.views.training_view_set import TrainingViewSet
@@ -32,4 +34,4 @@ urlpatterns = [
     # path('workout/', include('workout_portal.urls')),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
