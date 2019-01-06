@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Training } from '../../types';
-import { Service } from '../../service/api';
 
 @Component({
   selector: 'app-body',
@@ -9,12 +7,10 @@ import { Service } from '../../service/api';
 })
 export class BodyComponent implements OnInit {
 
-  trainings: Training[];
 
   constructor() { }
 
   async ngOnInit(): Promise<void> {
-    this.trainings = await Service.getTrainings();
   }
 
 }

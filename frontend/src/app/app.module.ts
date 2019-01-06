@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { BodyComponent } from './template/body/body.component';
-import { WorkoutSetComponent } from './pages/training/workout-set/workout-set.component';
-import { ExcerciseComponent } from './pages/training/excercise/excercise.component';
-import { TrainingComponent } from './pages/training/training.component';
+import { WorkoutSetPreviewComponent } from './components/workout-set-preview/workout-set-preview.component';
+import { ExcerciseComponent } from './components/excercise/excercise.component';
+import { TrainingComponent } from './components/training/training.component';
 import { DateFormat } from './pipes/dateFormatter';
+import { TrainingsComponent } from './pages/trainings/trainings.component';
+import { WorkoutSetComponent } from './pages/workout-set/workout-set.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { DateFormat } from './pipes/dateFormatter';
     HeaderComponent,
     FooterComponent,
     BodyComponent,
-    WorkoutSetComponent,
+    WorkoutSetPreviewComponent,
     ExcerciseComponent,
     TrainingComponent,
-    DateFormat
+    DateFormat,
+    TrainingsComponent,
+    WorkoutSetComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { WorkoutSet } from '../../../types';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-workout-set',
@@ -7,7 +6,7 @@ import { WorkoutSet } from '../../../types';
   styleUrls: ['./workout-set.component.scss']
 })
 export class WorkoutSetComponent implements OnInit {
-  @Input() workoutSet: WorkoutSet;
+
   constructor() { }
 
   ngOnInit() {
