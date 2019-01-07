@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Training } from '../../types';
-import { Service } from '../../service/api';
+import { TrainingsService } from '../../services/trainings.service';
 
 @Component({
   selector: 'app-trainings',
@@ -11,10 +11,10 @@ export class TrainingsComponent implements OnInit {
 
   trainings: Training[];
 
-  constructor() { }
+  constructor(private trainingsService: TrainingsService) { }
 
   async ngOnInit() {
-    this.trainings = await Service.getTrainings();
+    this.trainings = await this.trainingsService.getTrainings();
   }
 
 }
