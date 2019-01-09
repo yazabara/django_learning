@@ -2,6 +2,22 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+class ExerciseImage(models.Model):
+    name = models.CharField(max_length=40)
+    image = models.ImageField(upload_to='images/', null=True, verbose_name='')
+
+    def __str__(self):
+        return 'Image name {}, image data {}'.format(self.name, str(self.image))
+
+
+class ExerciseVideo(models.Model):
+    name = models.CharField(max_length=40)
+    video = models.FileField(upload_to='video/', null=True)
+
+    def __str__(self):
+        return 'Video name {}, video data {}'.format(self.name, str(self.video))
+
+
 class Training(models.Model):
     """
     Model described one training for user. (name, date, exercises)
@@ -10,6 +26,8 @@ class Training(models.Model):
     date = models.DateTimeField()
     # Foreign Key to User table
     user = models.ForeignKey(to=User, null=False, blank=False, on_delete=models.CASCADE)
+    image_gallery = models.ForeignKey(to=ExerciseImage, null=True, on_delete=models.CASCADE, related_name='images')
+    video_gallery = models.ForeignKey(to=ExerciseVideo, null=True, on_delete=models.CASCADE, related_name='videos')
 
     def __str__(self):
         return "Training: name {}, date {}, user {}".format(self.name,
