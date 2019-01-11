@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>View profile</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users; let i = index">
+    <td>{{i + 1}}</td>
+    <td><a [routerLink]="['/user', user.id]">{{user.username}}</a></td>
+    <td>{{user.email}}</td>
+    <td>
+      <button type="button" [routerLink]="['/user', user.id]" class="btn btn-dark">view</button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-dark"><i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-primary">Create new</button>

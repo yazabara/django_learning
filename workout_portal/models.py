@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -18,6 +18,12 @@ class ExerciseVideo(models.Model):
         return 'Video name {}, video data {}'.format(self.name, str(self.video))
 
 
+class SimpleUser(AbstractUser):
+    telephone = models.IntegerField(null=True)
+    profile_img = models.ImageField(null=True, upload_to='profile/', storage='')
+    profile_url = models.CharField(max_length=255)
+
+
 class Training(models.Model):
     """
     Model described one training for user. (name, date, exercises)
@@ -25,7 +31,7 @@ class Training(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateTimeField()
     # Foreign Key to User table
-    user = models.ForeignKey(to=User, null=False, blank=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=SimpleUser, null=False, blank=False, on_delete=models.CASCADE)
     image_gallery = models.ForeignKey(to=ExerciseImage, null=True, on_delete=models.CASCADE, related_name='images')
     video_gallery = models.ForeignKey(to=ExerciseVideo, null=True, on_delete=models.CASCADE, related_name='videos')
 

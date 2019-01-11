@@ -1,0 +1,20 @@
+<div class="container justify-content-md-center">
+  <div class="row">
+    <label for="userName" class="col col-form-label">Name</label>
+    <div class="col">
+      <input id="userName" type="text" readonly class="form-control-plaintext" value="{{user?.username}}"/></div>
+  </div>
+  <div class="row">
+    <label for="staticEmail" class="col col-form-label">Email</label>
+    <div class="col">
+      <input id="staticEmail" type="text" readonly class="form-control-plaintext" value="{{user?.email}}"/></div>
+  </div>
+  <div class="row">
+   <img src="{{user?.profile_img}}" class="profile-img">
+  </div>
+  <div class="row">
+    <label for="profileUrl" class="col col-form-label">URL</label>
+    <div class="col">
+      <input id="profileUrl" type="text" readonly class="form-control-plaintext" value="{{user?.profile_url}}"/></div>
+  </div>
+</div>
