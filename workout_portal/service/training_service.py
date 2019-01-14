@@ -7,8 +7,8 @@ class TrainingService(object):
         return Training.objects.create(user_id=user_id, name=name, date=date)
 
     @staticmethod
-    def list(limit=5):
-        return Training.objects.order_by('date')[0:limit]
+    def list():
+        return Training.objects.all()
 
     @staticmethod
     def get_by_id(training_id):
