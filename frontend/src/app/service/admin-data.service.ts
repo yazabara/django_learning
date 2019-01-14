@@ -1,5 +1,5 @@
-import {Injectable, OnInit} from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {shareReplay} from "rxjs/operators";
 import {environment} from "../../environments/environment";
@@ -7,13 +7,10 @@ import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class AdminDataService implements OnInit {
+export class AdminDataService {
   usersApiUrl = environment.usersAPI;
 
   constructor(private http: HttpClient) {
-  }
-
-  ngOnInit(): void {
   }
 
   getUsersList(): Observable<UserData.SimpleUser[]> {

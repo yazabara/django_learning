@@ -9,10 +9,4 @@ declare namespace UserData {
     profile_url: string
   }
 
-  interface Client extends SimpleUser {
-  }
-
-  interface Trainer extends SimpleUser {
-
-  }
 }
