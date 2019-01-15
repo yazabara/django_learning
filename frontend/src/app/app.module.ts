@@ -9,9 +9,11 @@ import { BodyComponent } from './template/body/body.component';
 import { WorkoutSetPreviewComponent } from './components/workout-set-preview/workout-set-preview.component';
 import { ExcerciseComponent } from './components/excercise/excercise.component';
 import { TrainingComponent } from './components/training/training.component';
+import { ReviewComponent } from './components/review/review.component';
 import { DateFormat } from './pipes/dateFormatter';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { WorkoutSetComponent } from './pages/workout-set/workout-set.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import { WorkoutSetComponent } from './pages/workout-set/workout-set.component';
     WorkoutSetPreviewComponent,
     ExcerciseComponent,
     TrainingComponent,
+    ReviewComponent,
     DateFormat,
     TrainingsComponent,
     WorkoutSetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

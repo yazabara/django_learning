@@ -1,4 +1,5 @@
 export interface Training {
+    id: number;
     name: string;
     date: Date;
     isExpanded: boolean;
@@ -12,6 +13,7 @@ export interface Exercise {
 }
 
 export interface WorkoutSet {
+    id: number;
     weight: number;
     repetitions: number;
     duration: number;
