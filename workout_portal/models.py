@@ -48,7 +48,8 @@ class Exercise(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1000)
     # Foreign Key to Training table
-    training = models.ForeignKey(to=Training, null=False, blank=False, on_delete=models.CASCADE)
+    training = models.ForeignKey(to=Training, null=False, blank=False,
+                                 on_delete=models.CASCADE, related_name='exercises')
 
     def __str__(self):
         return "Exercise: name {}, description {}, training {}".format(self.name,
@@ -65,7 +66,8 @@ class WorkoutSet(models.Model):
     duration = models.IntegerField()
     additional = models.CharField(max_length=1000)
     # Foreign Key to Exercise table
-    exercise = models.ForeignKey(to=Exercise, null=False, blank=False, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(to=Exercise, null=False, blank=False,
+                                 on_delete=models.CASCADE, related_name='workouts')
 
     def __str__(self):
         return "Exercise: weight {}, repetitions {}, duration {}, additional {}, exercise {}".format(self.weight,

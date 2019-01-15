@@ -45,7 +45,7 @@ def generate_trainings(apps, user):
 def generate_data(apps, schema_editor):
     User = apps.get_registered_model('auth', 'User')
     user = User(
-        username='test',
+        username='test_{}'.format(randrange(50000)),
         email='test@test.com',
         password=make_password('test'),
         is_superuser=True,
@@ -58,7 +58,7 @@ def generate_data(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('workout_portal', '0002_img_vid_add'),
+        ('workout_portal', '0003_model_changes'),
     ]
 
     operations = [

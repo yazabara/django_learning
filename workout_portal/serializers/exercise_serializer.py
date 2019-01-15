@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from serializers.workout_serializer import WorkoutSetSerializer
+from workout_portal.serializers.workout_serializer import WorkoutSetSerializer
 from workout_portal.models import Exercise
 
 

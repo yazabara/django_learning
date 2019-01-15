@@ -8,7 +8,8 @@ class TrainingService(object):
 
     @staticmethod
     def list():
-        return Training.objects.all()
+        trainings = Training.objects.all()
+        return trainings
 
     @staticmethod
     def get_by_id(training_id):
