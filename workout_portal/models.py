@@ -76,7 +76,7 @@ class Review(models.Model):
     Model described review
     """
     comment_text = models.CharField(max_length=2000)
-    publication_date = models.DateTimeField(default=datetime.datetime.now())
+    publication_date = models.DateTimeField()
     entity_id = models.PositiveIntegerField()
     ENTITY_TYPES = (
         ('SET', 'WorkoutSet'),
