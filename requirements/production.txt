@@ -1,5 +1,7 @@
 django
 psycopg2
 djangorestframework
+# File working lib
 Pillow
+# Cors settings lib
 django-cors-headers

@@ -10,3 +10,4 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = user_service.list()
     serializer_class = UserSerializer
+    pagination_class = None

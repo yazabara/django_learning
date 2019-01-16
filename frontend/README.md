@@ -5,6 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Check file `environments/environment.ts` and check variable `backendApiURL`, change api url if it needed.
 
 ## Code scaffolding
 

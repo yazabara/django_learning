@@ -14,6 +14,9 @@ import { DateFormat } from './pipes/dateFormatter';
 import { TrainingsComponent } from './pages/trainings/trainings.component';
 import { WorkoutSetComponent } from './pages/workout-set/workout-set.component';
 import { HttpClientModule } from "@angular/common/http";
+import { AdminDataService } from "./service/admin-data.service";
+import { AdminModule } from "./components/admin-page/admin.module";
+
 
 @NgModule({
   declarations: [
@@ -32,9 +35,12 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AdminDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
