@@ -2,6 +2,60 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
+from django.contrib.auth.hashers import make_password
+from datetime import datetime
+from random import randrange
+import time
+
+
+def generate_workoutset(apps, exercise):
+    WorkoutSet = apps.get_model("workout_portal", "WorkoutSet")
+    for i in range(0, 3):
+        w = WorkoutSet(
+            weight=i,
+            repetitions=randrange(0, 100, 2),
+            duration=randrange(0, 100),
+            additional='additional information {}'.format(i),
+            exercise=exercise
+        )
+        w.save()
+
+
+def generate_exercise(apps, training):
+    Exercise = apps.get_model("workout_portal", "Exercise")
+    for i in range(0, 2):
+        exercise = Exercise(
+            name='exercise_{}'.format(i),
+            description='desc_{}'.format(i),
+            training=training
+        )
+        exercise.save()
+        generate_workoutset(apps, exercise)
+
+
+def generate_trainings(apps, user):
+    Training = apps.get_model("workout_portal", "Training")
+    for i in range(0, 10):
+        training = Training(
+            name="training_{}".format(i),
+            date=datetime(year=2018, month=i + 1, day=i + 2),
+            user=user
+        )
+        training.save()
+        generate_exercise(apps, training)
+
+
+def generate_data(apps, schema_editor):
+    User = apps.get_registered_model('auth', 'User')
+    user = User(
+        username='test',
+        email='test@test.com',
+        password=make_password('test'),
+        is_superuser=True,
+        is_staff=True
+    )
+    user.save()
+    generate_trainings(apps, user)
 
 
 class Migration(migrations.Migration):
@@ -14,11 +68,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='exercise',
             name='training',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='trainings', to='workout_portal.Training'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='exercises', to='workout_portal.Training'),
         ),
         migrations.AlterField(
             model_name='workoutset',
             name='exercise',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='exercises', to='workout_portal.Exercise'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='workouts', to='workout_portal.Exercise'),
         ),
+        migrations.RunPython(generate_data),
     ]
