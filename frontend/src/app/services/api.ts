@@ -8,13 +8,14 @@ export class Service {
     }
 
     private static trainings(): Training[] {
-        return Array.from(Array(10).keys()).map(element => {
+        return Array.from(Array(10).keys()).map((element, index) => {
             const name = `training ${element}`;
             return {
                 name,
                 date: new Date(),
                 isExpanded: false,
-                exercises: Service.excercises(name)
+                exercises: Service.excercises(name),
+                id: index + 1,
             } as Training;
         });
     }
@@ -31,8 +32,9 @@ export class Service {
     }
 
     private static sets(name: string): WorkoutSet[] {
-        return Array.from(Array(20).keys()).map(element => {
+        return Array.from(Array(20).keys()).map((element, index) => {
             return {
+                id: index + 1,
                 weight: element,
                 repetitions: element + element,
                 duration: element * element,

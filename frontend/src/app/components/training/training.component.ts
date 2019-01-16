@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Training } from '../../types';
+import {EntityType} from "../../model/review/entity.type";
 
 @Component({
   selector: 'app-training',
@@ -8,6 +9,8 @@ import { Training } from '../../types';
 })
 export class TrainingComponent implements OnInit {
   @Input() training: Training;
+
+  public entityTypes = EntityType;
 
   constructor() { }
 

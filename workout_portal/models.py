@@ -1,3 +1,5 @@
+import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -67,3 +69,32 @@ class WorkoutSet(models.Model):
                                                                                                      self.duration,
                                                                                                      self.additional,
                                                                                                      self.exercise)
+
+
+class Review(models.Model):
+    """
+    Model described review
+    """
+    comment_text = models.CharField(max_length=2000)
+    publication_date = models.DateTimeField()
+    entity_id = models.PositiveIntegerField()
+    ENTITY_TYPES = (
+        ('SET', 'WorkoutSet'),
+        ('EXC', 'Exercise'),
+        ('TRN', 'Training'),
+        ('VID', 'ExerciseVideo'),
+        ('IMG', 'ExerciseImage')
+    )
+    entity_type = models.CharField(max_length=3, choices=ENTITY_TYPES)
+
+    def __str__(self):
+        return "comment_text {}, publication_date {}, entity_id {}, entity_type {}".format(self.comment_text,
+                                                                                           self.publication_date,
+                                                                                           self.entity_id,
+                                                                                           self.entity_type)
+
+    def save(self, *args, **kwargs):
+        if self.entity_type == "":
+            return
+        else:
+            super(Review, self).save(*args, **kwargs)

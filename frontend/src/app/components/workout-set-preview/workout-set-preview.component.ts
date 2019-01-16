@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WorkoutSet } from '../../types';
+import {EntityType} from "../../model/review/entity.type";
 
 @Component({
   selector: 'app-workout-set-preview',
@@ -8,6 +9,9 @@ import { WorkoutSet } from '../../types';
 })
 export class WorkoutSetPreviewComponent implements OnInit {
   @Input() workoutSet: WorkoutSet;
+
+   public entityTypes = EntityType;
+
   constructor() { }
 
   ngOnInit() {
