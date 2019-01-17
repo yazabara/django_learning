@@ -19,3 +19,5 @@ services:
     command: ["start"]
     depends_on:
       - workout-portal-api-service
+    links:
+      - workout-portal-api-service

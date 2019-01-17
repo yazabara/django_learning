@@ -19,12 +19,12 @@ ADD ./angular.json ./tsconfig.json ./
 ADD ./src ./src
 
 # Add a launcher
-ADD ./entrypoint.sh ./
-RUN chmod +x ./entrypoint.sh
+ADD ./entrypoint.sh ./frontend/
+RUN chmod +x ./frontend/entrypoint.sh
 
 #
 # Launcher
 #
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./frontend/entrypoint.sh"]
 
 EXPOSE 4200
