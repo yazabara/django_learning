@@ -1,0 +1,21 @@
+version: "3.7"
+
+networks:
+  workout-portal-local:
+    name: workout-portal-local
+
+services:
+
+  workout-portal-ui:
+    networks:
+      - workout-portal-local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: workout-portal-ui
+    restart: always
+    ports:
+      - "4200:4200"
+    command: ["start"]
+    depends_on:
+      - workout-portal-api-service

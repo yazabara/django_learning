@@ -10,7 +10,7 @@ import {take} from "rxjs/operators";
 })
 export class ReviewService {
 
-  private reviewApiUrl = "/api/reviews/";
+  private reviewApiUrl = `${API_BASE_URL}trainings/`;
 
   constructor(private http: HttpClient) {
   }
