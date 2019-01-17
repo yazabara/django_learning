@@ -61,7 +61,7 @@ def generate_data(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('workout_portal', '0002_img_vid_add'),
+        ('workout_portal', '0001_initial'),
     ]
 
     operations = [
