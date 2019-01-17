@@ -11,4 +11,4 @@ class TrainingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Training
-        fields = ('name', 'date', 'user', 'exercises')
+        fields = ('id', 'name', 'date', 'user', 'exercises')
