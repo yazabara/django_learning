@@ -12,7 +12,3 @@ class TrainingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Training
         fields = ('name', 'date', 'user', 'exercises')
-
-    # def to_representation(self, value):
-    #     duration = time.strftime('%M:%S', time.gmtime(value.duration))
-    #     return 'Track %d: %s (%s)' % (value.order, value.name, duration)
