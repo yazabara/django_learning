@@ -16,13 +16,3 @@ services:
     ports:
       - "8080:8080"
     container_name: workout-portal-api-service
-
-#  rics-api-db:
-#    image: postgres:9.6.9
-#    restart: always
-#    container_name: rics-api-db
-#    environment:
-#    - POSTGRES_USER=rics
-#    - POSTGRES_PASSWORD=ricsadmin
-#    - POSTGRES_DB=rics
-#    command: ["--autovacuum=off"]
