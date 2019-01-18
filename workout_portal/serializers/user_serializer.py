@@ -1,8 +1,9 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
+
+from workout_portal.models import SimpleUser
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'groups')
+        model = SimpleUser
+        fields = ('id', 'profile_img', 'username', 'email', 'groups', 'profile_url', 'telephone')

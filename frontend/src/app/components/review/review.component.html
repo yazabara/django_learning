@@ -1,0 +1,30 @@
+<div class="container justify-content-md-center">
+  <h3 *ngIf="reviews && reviews.length > 0">Оставленные комментарии</h3>
+  <div *ngFor="let review of reviews">
+    <div class="comment-border">
+      <p class="font-weight-bold">Комментарий: {{review.comment_text}}</p>
+      <p class="font-weight-bold">Дата публикации: {{review.publication_date | dateFormat:' HH:mm:ss DD.MM.YYYY'}}</p>
+      <button *ngIf="!newReview"
+              (click)="deleteReview(review)">
+        Удалить комментарий
+      </button>
+    </div>
+  </div>
+
+  <button *ngIf="!newReview"
+          (click)="createNewReview()">
+    Добавить новый комментарий
+  </button>
+
+  <div *ngIf="newReview">
+    <label>Комментарий:</label>
+    <textarea (change)="doTextareaValueChange($event)">{{newReview.comment_text}}</textarea>
+    <button (click)="saveReview()">
+      Сохранить
+    </button>
+    <button (click)="cancel()">
+      Отмена
+    </button>
+  </div>
+
+</div>

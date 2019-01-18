@@ -1,6 +1,8 @@
 *.iml
 *.sqlite3
+*.pyc
 /django_learning_env/*
+/django_learning/media/*
 
 # compiled output
 /frontend/dist

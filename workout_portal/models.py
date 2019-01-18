@@ -1,5 +1,27 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+
+
+class ExerciseImage(models.Model):
+    name = models.CharField(max_length=40)
+    image = models.ImageField(upload_to='images/', null=True, verbose_name='')
+
+    def __str__(self):
+        return 'Image name {}, image data {}'.format(self.name, str(self.image))
+
+
+class ExerciseVideo(models.Model):
+    name = models.CharField(max_length=40)
+    video = models.FileField(upload_to='video/', null=True)
+
+    def __str__(self):
+        return 'Video name {}, video data {}'.format(self.name, str(self.video))
+
+
+class SimpleUser(AbstractUser):
+    telephone = models.IntegerField(null=True)
+    profile_img = models.ImageField(null=True, upload_to='profile/', storage='')
+    profile_url = models.CharField(max_length=255)
 
 
 class Training(models.Model):
@@ -9,7 +31,9 @@ class Training(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateTimeField()
     # Foreign Key to User table
-    user = models.ForeignKey(to=User, null=False, blank=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=SimpleUser, null=False, blank=False, on_delete=models.CASCADE)
+    image_gallery = models.ForeignKey(to=ExerciseImage, null=True, on_delete=models.CASCADE, related_name='images')
+    video_gallery = models.ForeignKey(to=ExerciseVideo, null=True, on_delete=models.CASCADE, related_name='videos')
 
     def __str__(self):
         return "Training: name {}, date {}, user {}".format(self.name,
@@ -24,7 +48,8 @@ class Exercise(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1000)
     # Foreign Key to Training table
-    training = models.ForeignKey(to=Training, null=False, blank=False, on_delete=models.CASCADE)
+    training = models.ForeignKey(to=Training, null=False, blank=False,
+                                 on_delete=models.CASCADE, related_name='exercises')
 
     def __str__(self):
         return "Exercise: name {}, description {}, training {}".format(self.name,
@@ -41,7 +66,8 @@ class WorkoutSet(models.Model):
     duration = models.IntegerField()
     additional = models.CharField(max_length=1000)
     # Foreign Key to Exercise table
-    exercise = models.ForeignKey(to=Exercise, null=False, blank=False, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(to=Exercise, null=False, blank=False,
+                                 on_delete=models.CASCADE, related_name='workouts')
 
     def __str__(self):
         return "Exercise: weight {}, repetitions {}, duration {}, additional {}, exercise {}".format(self.weight,
@@ -49,3 +75,32 @@ class WorkoutSet(models.Model):
                                                                                                      self.duration,
                                                                                                      self.additional,
                                                                                                      self.exercise)
+
+
+class Review(models.Model):
+    """
+    Model described review
+    """
+    comment_text = models.CharField(max_length=2000)
+    publication_date = models.DateTimeField()
+    entity_id = models.PositiveIntegerField()
+    ENTITY_TYPES = (
+        ('SET', 'WorkoutSet'),
+        ('EXC', 'Exercise'),
+        ('TRN', 'Training'),
+        ('VID', 'ExerciseVideo'),
+        ('IMG', 'ExerciseImage')
+    )
+    entity_type = models.CharField(max_length=3, choices=ENTITY_TYPES)
+
+    def __str__(self):
+        return "comment_text {}, publication_date {}, entity_id {}, entity_type {}".format(self.comment_text,
+                                                                                           self.publication_date,
+                                                                                           self.entity_id,
+                                                                                           self.entity_type)
+
+    def save(self, *args, **kwargs):
+        if self.entity_type == "":
+            return
+        else:
+            super(Review, self).save(*args, **kwargs)

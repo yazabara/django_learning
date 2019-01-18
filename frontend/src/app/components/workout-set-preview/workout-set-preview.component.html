@@ -1,0 +1,7 @@
+<div style="border-style: groove; border-width: 1px; border-color: red; margin: 1px; padding: 1px;">
+  <span>{{workoutSet.additional}}</span>
+  <a routerLink="/wset">go to set!</a>
+    <review [entityId]="workoutSet.id"
+            [entityType]="entityTypes.WORKOUT_SET">
+    </review>
+</div>
