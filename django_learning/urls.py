@@ -19,6 +19,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 from workout_portal.views.group_view_set import GroupViewSet
 from workout_portal.views.review_view_set import ReviewViewSet
@@ -28,7 +30,7 @@ from workout_portal.views.user_view_set import UserViewSet
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'trainings', TrainingViewSet)
+router.register(r'api/trainings', TrainingViewSet)
 router.register(r'api/reviews', ReviewViewSet)
 
 urlpatterns = [
