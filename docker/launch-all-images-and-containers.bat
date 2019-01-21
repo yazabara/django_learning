@@ -1,1 +1,1 @@
-docker-compose -f ../api-docker-compose.yml -f ../frontend/ui-docker-compose.yml %*
+docker-compose -f ../api-docker-compose.yml -f ../frontend/ui-docker-compose.yml -f ../docker-compose.override.yml %*

@@ -8,7 +8,7 @@ LABEL description="Container with Workout Portal UI"
 #
 # Preparing of environment
 #
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/frontend
 
 # Installation of dependencies
 ADD ./package.json ./package-lock.json ./
@@ -19,12 +19,12 @@ ADD ./angular.json ./tsconfig.json ./
 ADD ./src ./src
 
 # Add a launcher
-ADD ./entrypoint.sh ./frontend/
-RUN chmod +x ./frontend/entrypoint.sh
+ADD ./entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
 
 #
 # Launcher
 #
-ENTRYPOINT ["./frontend/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 4200
