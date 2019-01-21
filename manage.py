@@ -4,7 +4,7 @@ import sys
 
 if __name__ == '__main__':
     # develop setting only
-    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_learning.settings.local_sqlite')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_learning.settings.local_pg')
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_learning.settings.local_pg')
     try:
         from django.core.management import execute_from_command_line
