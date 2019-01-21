@@ -11,8 +11,6 @@ services:
     container_name: workout-portal-api-service
     depends_on:
       - workout-portal-api-db
-    links:
-      - workout-portal-api-db
 
   workout-portal-api-db:
     image: postgres:10
@@ -22,4 +20,3 @@ services:
       - POSTGRES_USER=django_learning
       - POSTGRES_PASSWORD=django_learning
       - POSTGRES_DB=django_learning
-
