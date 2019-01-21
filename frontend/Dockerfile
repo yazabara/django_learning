@@ -27,4 +27,5 @@ RUN chmod +x ./entrypoint.sh
 #
 ENTRYPOINT ["./entrypoint.sh"]
 
-EXPOSE 4200
+# open application port and live reload port
+EXPOSE 4200 49153
