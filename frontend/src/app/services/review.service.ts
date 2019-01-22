@@ -4,13 +4,14 @@ import {Observable} from "rxjs";
 import {Review} from "../model/review/review";
 import {EntityType} from "../model/review/entity.type";
 import {take} from "rxjs/operators";
+import {API_BASE_URL} from "./consts";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
 
-  private reviewApiUrl = "/api/reviews/";
+  private reviewApiUrl = `${API_BASE_URL}reviews/`;
 
   constructor(private http: HttpClient) {
   }

@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'django_learning',
         'USER': 'django_learning',
         'PASSWORD': 'django_learning',
-        'HOST': '127.0.0.1',
+        'HOST': 'workout-portal-api-db',
         'PORT': '5432'
     }
 }

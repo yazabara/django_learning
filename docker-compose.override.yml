@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+
+  workout-portal-api-service:
+    build:
+      context: .
+    volumes:
+      - ./django_learning:/usr/src/app/django_learning
+      - ./workout_portal:/usr/src/app/workout_portal
+
+  workout-portal-ui:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend/src:/usr/src/app/frontend/src
+
+  workout-portal-api-db:
+    volumes:
+      - ./postgres-db-data:/var/lib/postgresql/data
