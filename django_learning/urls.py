@@ -30,12 +30,12 @@ from workout_portal.views.user_view_set import UserViewSet
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'api/trainings', TrainingViewSet)
-router.register(r'api/reviews', ReviewViewSet)
+router.register(r'trainings', TrainingViewSet)
+router.register(r'reviews', ReviewViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('workout/', include('workout_portal.urls')),
-    url(r'^', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
