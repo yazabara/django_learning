@@ -32,7 +32,7 @@ services:
       - ./frontend/src:/usr/src/app/frontend/src
 
   workout-portal-api-db:
-    image: postgres:10
+    image: postgres:10-alpine
     restart: unless-stopped
     container_name: workout-portal-api-db
     ports:
