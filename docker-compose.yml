@@ -9,6 +9,8 @@ services:
     ports:
       - "8080:8080"
     container_name: workout-portal-api-service
+    environment:
+      WAIT_HOSTS: workout-portal-api-db:5432
     depends_on:
       - workout-portal-api-db
     volumes:

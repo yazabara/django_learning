@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+../../../wait
 # Add migrations
 python manage.py migrate
 
