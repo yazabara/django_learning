@@ -1,5 +1,10 @@
+# web framework
 django==2.1.5
+# Python-PostgreSQL Database Adapter
 psycopg2==2.7.6.1
+# toolkit for building Web APIs
 djangorestframework==3.9.0
+# File working lib
 Pillow==1.1.7
+# Cors settings lib
 django-cors-headers==2.4.0
