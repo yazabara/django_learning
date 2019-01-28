@@ -1,7 +1,7 @@
-django
-psycopg2
-djangorestframework
+django==2.1.5
+psycopg2==2.7.6.1
+djangorestframework==3.9.0
 # File working lib
-Pillow
+Pillow==1.1.7
 # Cors settings lib
-django-cors-headers
+django-cors-headers==2.4.0
