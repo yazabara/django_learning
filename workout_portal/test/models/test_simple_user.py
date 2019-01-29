@@ -3,6 +3,7 @@ import unittest
 from django.test import TestCase
 
 from workout_portal.models import SimpleUser
+from workout_portal.test.data.builders.simple_user_builder import SimpleUserBuilder
 
 
 class SimpleUserTest(TestCase):
@@ -18,12 +19,9 @@ class SimpleUserTest(TestCase):
     @unittest.expectedFailure
     def test_profile_url_can_not_be_more_than_255_characters(self):
         incorrect_length = 256
-        simple_user = SimpleUser(
+        simple_user = SimpleUserBuilder(
             # incorrect field
-            profile_url='x' * incorrect_length,
-            # correct fields
-            username="username", password="password", telephone=79040029933, profile_img="/images/img.png"
-        )
+            profile_url='x' * incorrect_length).build()
         simple_user.full_clean()
 
     def test_profile_img_upload_to_should_not_be_empty(self):
