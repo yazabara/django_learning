@@ -1,11 +1,11 @@
-from datetime import datetime
+from django.utils import timezone
 
 from workout_portal.models import Training
 
 
 class TrainingBuilder(object):
 
-    def __init__(self, user, image_gallery, video_gallery, name="name", date=datetime.now()):
+    def __init__(self, user, image_gallery, video_gallery, name="name", date=timezone.now()):
         self.user = user
         self.image_gallery = image_gallery
         self.video_gallery = video_gallery
