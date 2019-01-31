@@ -19,7 +19,7 @@ class ExerciseTest(TestCase):
         exercise_video.save()
         exercise_image = ExerciseImageBuilder().build()
         exercise_image.save()
-        cls.training = TrainingBuilder(simple_user, exercise_image, exercise_video, "training_test_name").build()
+        cls.training = TrainingBuilder(simple_user, exercise_image, exercise_video).build()
 
     def test_exercise_name_can_not_be_more_than_255_characters(self):
         incorrect_length = 256
@@ -37,4 +37,4 @@ class ExerciseTest(TestCase):
 
     def test_exercise_has_relation_with_training(self):
         ExerciseBuilder(self.training).build().save()
-        self.assertEqual(Exercise.objects.filter(training__name="training_test_name").count(), 1)
+        self.assertEqual(Exercise.objects.filter(training__pk=self.training.pk).count(), 1)

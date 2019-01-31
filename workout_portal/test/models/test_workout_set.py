@@ -21,7 +21,7 @@ class WorkoutSetTest(TestCase):
         exercise_image = ExerciseImageBuilder().build()
         exercise_image.save()
         training = TrainingBuilder(simple_user, exercise_image, exercise_video).build()
-        cls.exercise = ExerciseBuilder(training, name="exc_name").build()
+        cls.exercise = ExerciseBuilder(training).build()
         cls.exercise.save()
 
     def test_workout_set_additional_can_not_be_more_than_1000_characters(self):
@@ -31,4 +31,4 @@ class WorkoutSetTest(TestCase):
 
     def test_workout_set_has_relation_with_exercise(self):
         WorkoutSetBuilder(self.exercise).build().save()
-        self.assertEqual(WorkoutSet.objects.filter(exercise__name="exc_name").count(), 1)
+        self.assertEqual(WorkoutSet.objects.filter(exercise__pk=self.exercise.pk).count(), 1)

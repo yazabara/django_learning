@@ -15,7 +15,7 @@ class TrainingTest(TestCase):
         self.simple_user.save()
         self.exercise_video = ExerciseVideoBuilder().build()
         self.exercise_video.save()
-        self.exercise_image = ExerciseImageBuilder(name="exercise_image_name").build()
+        self.exercise_image = ExerciseImageBuilder().build()
         self.exercise_image.save()
         TrainingBuilder(self.simple_user, self.exercise_image, self.exercise_video).build().save()
 
@@ -27,10 +27,10 @@ class TrainingTest(TestCase):
         self.assertRaises(ValidationError, training.full_clean)
 
     def test_training_has_relation_with_user(self):
-        self.assertEqual(Training.objects.filter(user__username="username").count(), 1)
+        self.assertEqual(Training.objects.filter(user__pk=self.simple_user.pk).count(), 1)
 
     def test_training_has_relation_with_exercise_image(self):
-        self.assertEqual(Training.objects.filter(image_gallery__name="exercise_image_name").count(), 1)
+        self.assertEqual(Training.objects.filter(image_gallery__pk=self.exercise_image.pk).count(), 1)
 
     def test_training_has_relation_with_exercise_video(self):
-        self.assertEqual(Training.objects.filter(video_gallery__name="exercise_video_name").count(), 1)
+        self.assertEqual(Training.objects.filter(video_gallery__pk=self.exercise_video.pk).count(), 1)
