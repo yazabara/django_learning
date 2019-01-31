@@ -42,7 +42,7 @@ class TrainingViewSetTest(TestCase):
         response = training_view_set(request, pk=1)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_should_successful_creating_training(self):
+    def test_should_unsuccessful_creating_training(self):
         request_params = {'name': 'test training',
                           'date': '2019-01-16T07:55:21.526Z',
                           'user': {
