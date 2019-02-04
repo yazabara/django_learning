@@ -1,0 +1,26 @@
+[
+  {
+    "model": "workout_portal.simpleuser",
+    "pk": 1,
+    "fields": {
+      "profile_img": null,
+      "username": "username 1",
+      "email": "email1@email.com",
+      "groups": [],
+      "profile_url": "http://profile/1",
+      "telephone": 212321321
+    }
+  },
+  {
+    "model": "workout_portal.simpleuser",
+    "pk": 2,
+    "fields": {
+      "profile_img": null,
+      "username": "username2",
+      "email": "email2@email.com",
+      "groups": [],
+      "profile_url": "http://profile/1",
+      "telephone": 123213
+    }
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "model": "workout_portal.training",
+    "pk": 1,
+    "fields": {
+      "name": "training 1",
+      "date": "2019-01-16T07:55:21.526Z",
+      "user_id": "1"
+    }
+  },
+  {
+    "model": "workout_portal.training",
+    "pk": 2,
+    "fields": {
+      "name": "training 2",
+      "date": "2019-01-16T07:55:21.526Z",
+      "user_id": "1"
+    }
+  }
+]
