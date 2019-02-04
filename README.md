@@ -23,11 +23,11 @@ You may run project in 2 ways:
 
 **Running project via docker:**
 
-```docker-compose buil```
+```docker-compose build```
 
 ```docker-compose up```
 
-***depricated docker way:***
+***deprecated docker way:***
 
 Switch to directory ``/docker`` and run command ``build-images-and-launch-containers.bat up``
 By default application is available at http://localhost:4200/
