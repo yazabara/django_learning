@@ -14,14 +14,20 @@ Trello: https://trello.com/b/Cx65xYwu/django-learning-github
 1. install node, npm
 2. install angular cli - npm install @angular/cli
 3. switch directory to "frontend"
-4. launch "npm -i" command
+4. launch "npm i" command
 ---
 
 ## Run project:
 
 You may run project in 2 ways:
 
-**Running project via docker**
+**Running project via docker:**
+
+```docker-compose build```
+
+```docker-compose up```
+
+***deprecated docker way:***
 
 Switch to directory ``/docker`` and run command ``build-images-and-launch-containers.bat up``
 By default application is available at http://localhost:4200/
